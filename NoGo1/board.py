@@ -81,6 +81,8 @@ class GoBoard(object):
             and n is number of points that color has more than the other.
         This function is based of https://github.com/Rochester-NRT/RocAlphaGo/blob/develop/AlphaGo/go.py --> get_winner
         """
+        
+        """
         # Count number of positions filled by each player, plus 1 for each eye-ish space owned
         score_white = np.sum(self.board == WHITE)
         score_black = np.sum(self.board == BLACK)
@@ -107,7 +109,16 @@ class GoBoard(object):
 
         else:
             result="W+{}".format(score_white - score_black )
+            
+            
 
+        return result
+        """
+        if self.last_played_color == 1:
+        	result="Black wins"
+        elif self.last_played_color == 2:
+        	result="White wins"
+        
         return result
 
     def get_winner(self,komi):
