@@ -459,7 +459,6 @@ class GoBoard(object):
         in_enemy_eye = self._is_eyeish(point) != color
         fboard = self._flood_fill(point)
         self.ko_constraint = single_captures[0] if in_enemy_eye and len(single_captures) == 1 else None
-        #Added capture constraint
         if cap_flag == True:
         	self.board[point] = EMPTY
         	c = self._point_to_coord(point)
