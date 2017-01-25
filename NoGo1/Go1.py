@@ -25,7 +25,7 @@ def run():
     """
     start the gtp connection and wait for commands.
     """
-    con = GtpConnection(RandomPlayer())
+    con = GtpConnection(RandomPlayer(), "./gtp_log")
     con.start_connection()
 
 if __name__=='__main__':
