@@ -1,0 +1,33 @@
+# Own Test Cases
+
+
+boardsize 7
+clear_board
+
+
+play b b1
+
+10 play w b1
+#? [illegal move: w b1 (occupied)]
+
+20 play c3
+#? [illegal move: c3 (wrong number of arguments)]
+
+30 play r c3
+#? [illegal move: r c3 (wrong color)]
+
+40 play w c99
+#? [illegal move: w c99 (wrong coordinate)]
+
+play w a1
+
+
+60 play b a2
+#? [illegal move: b a2 (capture)]
+
+play b b2
+
+play b a3
+
+70 play w a2
+#? [illegal move: w a2 (suicide)]

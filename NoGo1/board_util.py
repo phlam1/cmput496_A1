@@ -142,9 +142,9 @@ class GoBoardUtil(object):
         try:
             s = point.lower()
         except Exception:
-            raise ValueError("invalid point")
+            raise ValueError("wrong coordinate")
         if s == "pass":
-            return None
+            raise ValueError("passing")
         try:
             col_c = s[0]
             if (not "a" <= col_c <= "z") or col_c == "i":
@@ -157,9 +157,9 @@ class GoBoardUtil(object):
             if row < 1:
                 raise ValueError
         except (IndexError, ValueError):
-            raise ValueError("invalid point: '%s'" % s)
+            raise ValueError("wrong coordinate")
         if not (col <= board_size and row <= board_size):
-            raise ValueError("point is off board: '%s'" % s)
+            raise ValueError("wrong coordinate")
         return row, col
     
     @staticmethod
@@ -175,9 +175,9 @@ class GoBoardUtil(object):
         """convert character representing player color to the appropriate number"""
         color_to_int = {"b": BLACK , "w": WHITE, "e":EMPTY, "BORDER":BORDER, "FLOODFILL":FLOODFILL}
         try:
-           return color_to_int[c] 
+            return color_to_int[c] 
         except:
-            raise ValueError("Valid color characters are: b, w, e, BORDER and FLOODFILL. please provide the input in this format ")
+            raise ValueError("wrong color")
     
     @staticmethod
     def int_to_color(i):
@@ -186,7 +186,7 @@ class GoBoardUtil(object):
         try:
            return int_to_color[i] 
         except:
-            raise ValueError("Provided integer value for color is invalid")
+            raise ValueError("wrong color")
          
     @staticmethod
     def copyb2b(board,copy_board):

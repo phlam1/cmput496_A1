@@ -1,0 +1,17 @@
+= 
+
+= 
+
+= illegal move: w b1 b2 b3 wrong number of arguments
+
+= illegal move: w w wrong coordinates
+
+= 
+[[0 1 0]
+ [0 0 0]
+ [0 0 0]]
+
+= 
+
+= illegal move: w a1 suicide
+
