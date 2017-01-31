@@ -23,7 +23,7 @@ span.test { font-weight:bold; }
 </td></tr>
 </table>
 <table width="100%" bgcolor="#e0e0e0">
-<tr><th align="left">Date:</th><td>January 31, 2017 9:29:21 PM UTC</td></tr>
+<tr><th align="left">Date:</th><td>January 31, 2017 10:22:43 PM UTC</td></tr>
 <tr><th align="left">Host:</th><td>phlam1-cmput496-a1-4322225 (Intel(R) Xeon(R) CPU @ 2.30GHz)</td></tr>
 <tr><th align="left" valign="top">Command:</th>
 <td valign="top"><tt>python3 Go1.py</tt></td></tr>
@@ -98,6 +98,136 @@ cputime
 </a>#? [illegal move: w a2 suicide]
 = illegal move: w a2 suicide
 
+</span>
+<span class="command">boardsize 3
+</span>= 
+
+<span class="command">clear_board
+</span>= 
+
+
+<span class="command">play b a1
+</span>= 
+
+<span class="command">play w a2
+</span>= 
+
+<span class="command">play b a3
+</span>= 
+
+<span class="command">play w b2
+</span>= 
+
+
+<span class="test"><a name="80">80 legal_moves w
+</a>#? [c1 c2 c3]
+= c1 c2 c3
+
+</span><span class="comment"># b1 and b2 would be captures
+</span>
+<span class="command">play b c2
+</span>= 
+
+<span class="command">play w c3
+</span>= 
+
+
+<span class="test"><a name="90">90 legal_moves b
+</a>#? [b1 c1]
+= b1 c1
+
+</span><span class="comment"># b3 is a capture
+</span>
+<span class="test"><a name="100">100 play b b3
+</a>#? [illegal move: b b3 capture]
+= illegal move: b b3 capture
+
+</span>
+<span class="command">play b b1
+</span>= 
+
+
+<span class="test"><a name="110">110 legal_moves b
+</a>#? []
+= 
+
+</span>
+<span class="test"><a name="120">120 legal_moves w
+</a>#? []
+= 
+
+</span>
+<span class="command">boardsize 3
+</span>= 
+
+<span class="command">clear_board
+</span>= 
+
+
+<span class="command">play b b1
+</span>= 
+
+<span class="command">play b a2
+</span>= 
+
+
+<span class="test"><a name="130">130 play w a1
+</a>#? [illegal move: w a1 suicide]
+= illegal move: w a1 suicide
+
+</span>
+<span class="command">play w c1
+</span>= 
+
+<span class="command">play w b2
+</span>= 
+
+<span class="command">play w a3
+</span>= 
+
+
+<span class="test"><a name="140">140 play b a1
+</a>#? [illegal move: b a1 suicide]
+= illegal move: b a1 suicide
+
+</span>
+<span class="test"><a name="150">150 legal_moves w
+</a>#? [b3 c2 c3]
+= b3 c2 c3
+
+</span>
+<span class="test"><a name="160">160 legal_moves b
+</a>#? [c3]
+= c3
+
+</span>
+<span class="command">play w c3
+</span>= 
+
+
+<span class="test"><a name="170">170 legal_moves b
+</a>#? []
+= 
+
+</span>
+<span class="test"><a name="180">180 legal_moves w
+</a>#? [b3 c2]
+= b3 c2
+
+</span>
+<span class="command">play w b3
+</span>= 
+
+
+<span class="test"><a name="190">190 legal_moves w
+</a>#? []
+= 
+
+</span>
+<span class="test"><a name="200">200 play b c2
+</a>#? [illegal move: b c2 capture]
+= illegal move: b c2 capture
+
 </span></pre>
 <hr style="margin:1em" size="1">
 <pre style="margin:1em">
@@ -109,6 +239,6 @@ quit
 
 </pre>
 <hr style="margin-bottom:0" size="1">
-<p style="margin-top:1; margin-right:5" align="right"><i><small>Generated on 1/31/17 9:29 PM by gogui-regress 1.4.9 (<a href="http://gogui.sf.net">http://gogui.sf.net</a>)</small></i></p>
+<p style="margin-top:1; margin-right:5" align="right"><i><small>Generated on 1/31/17 10:22 PM by gogui-regress 1.4.9 (<a href="http://gogui.sf.net">http://gogui.sf.net</a>)</small></i></p>
 </body>
 </html>

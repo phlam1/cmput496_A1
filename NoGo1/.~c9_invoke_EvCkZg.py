@@ -58,13 +58,13 @@ class GtpConnection():
         # used for argument checking
         # values: (required number or arguments, error message on argnum failure)
         self.argmap = {
-            "boardsize": (1, 'Usage: boardsize INT'),
+            "boardsize": (1, 'Usage: boardsize INT '),
             "komi": (1, 'Usage: komi FLOAT'),
             "known_command": (1, 'Usage: known_command CMD_NAME'),
             "set_free_handicap": (1, 'Usage: set_free_handicap MOVE (e.g. A4)'),
-            "genmove": (1, 'Usage: genmove (w,b)'),
+            "genmove": (1, 'Usage: genmove {w,b}'),
             "play": (2, 'illegal move: {} wrong number of arguments'),
-            "legal_moves": (1, 'Usage: legal_moves (w,b)')
+            "legal_moves": (1, 'Usage: legal_moves {w,b}')
         }
     
     def __del__(self):

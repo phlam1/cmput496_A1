@@ -1,5 +1,5 @@
 # cmput496_A1
 NoGo
 
-Philip Lam - 1304150
-Martin Humphreys - 1103615
+Philip Lam - phlam1 - 1304150
+Martin Humphreys - mghumphr - 1103615

@@ -1,4 +1,8 @@
-= 
+= illegal move: b z2 wrong coordinate
 
-= a1 a2 a3 b1 b2 b3 c1 c2 c3
+= illegal move: b a12 wrong coordinate
+
+= illegal move: b a8 wrong coordinate
+
+= illegal move: c c2 wrong color
 
