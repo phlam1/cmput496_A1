@@ -431,9 +431,9 @@ class GoBoard(object):
 
         if self.board[point] != EMPTY:
             c=self._point_to_coord(point)
-            msg = "Row and Column: %d %d is already filled with a %s stone"%(c[0],c[1],GoBoardUtil.int_to_color(color))
-            raise ValueError("occupied")
-            #return False,msg
+            msg = "occupied"
+            #raise ValueError("occupied")
+            return False,msg
         if point == self.ko_constraint:
             msg ="KO move is not permitted!"
             return False , msg
@@ -475,13 +475,13 @@ class GoBoard(object):
         if cap_flag == True:
         	self.board[point] = EMPTY
         	c = self._point_to_coord(point)
-        	msg = "Capture move with color %s in the row and column: %d %d "%(color, c[0],c[1])
-        	raise ValueError("capture")
-        #	return False, msg
+        	msg = "capture"
+        	#raise ValueError("capture") # this wrecks legal_moves command
+        	return False, msg
         if self._liberty_flood(fboard) and self.suicide:
             #non suicidal move
             c=self._point_to_coord(point)
-            msg = "Playing a move with %s color in the row and column %d %d is permited"%(color,c[0],c[1])
+            msg = "eyefill"
             return True, msg
         else:
             # undoing the move because of being suicidal
@@ -489,9 +489,9 @@ class GoBoard(object):
             if cap_inds!= None:
                 self.board[cap_inds]=GoBoardUtil.opponent(color)
             c=self._point_to_coord(point)
-            msg = "Suicide move with color %s in the row and column: %d %d "%(color, c[0],c[1])
-            raise ValueError("suicide")
-            #return False, msg
+            msg = "suicide"
+            #raise ValueError("suicide")
+            return False, msg
 
 
     def _neighbors(self,point):

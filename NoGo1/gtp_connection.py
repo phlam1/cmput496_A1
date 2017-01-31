@@ -63,7 +63,7 @@ class GtpConnection():
             "known_command": (1, 'Usage: known_command CMD_NAME'),
             "set_free_handicap": (1, 'Usage: set_free_handicap MOVE (e.g. A4)'),
             "genmove": (1, 'Usage: genmove {w,b}'),
-            "play": (2, 'illegal move: {} (wrong number of arguments)'),
+            "play": (2, 'illegal move: {} wrong number of arguments'),
             "legal_moves": (1, 'Usage: legal_moves {w,b}')
         }
     
@@ -143,7 +143,7 @@ class GtpConnection():
         """
         argnum = len(args)
         if cmd in self.argmap and self.argmap[cmd][0] > argnum:
-                self.error(self.argmap[cmd][1].format(' '.join(args)))
+                self.respond(self.argmap[cmd][1].format(' '.join(args)))
                 return True
         return False
 
@@ -272,7 +272,7 @@ class GtpConnection():
             moves=GoBoardUtil.generate_legal_moves(self.board,color)
             self.respond(moves)
         except Exception as e:
-            self.respond('Error: {}'.format(str(e)))
+            self.respond('error: {}'.format(str(e)))
 
     def play_cmd(self, args):
         """
@@ -292,11 +292,7 @@ class GtpConnection():
             board_color = args[0].lower()
             board_move = args[1]
             color= GoBoardUtil.color_to_int(board_color)
-            if len(args) != 2:
-                self.respond("illegal move: {} wrong number of arguments".format(' '.join(args)))
-                move = None
-                return
-            
+
             if board_color != 'b' and board_color != 'w':
                 self.respond("illegal move: {} wrong color".format(' '.join(args)))
                 move = None
@@ -313,8 +309,10 @@ class GtpConnection():
             else:
                 self.error("Error in executing the move %s, check given move: %s"%(move,args[1]))
                 return
-            if not self.board.move(move, color):
-                self.respond("illegal move: {}".format(board_move))
+            
+            move_inspection, msg = self.board._play_move(move, color)
+            if not move_inspection:
+                self.respond("illegal move: {}".format(' '.join(args)) + " " + msg)
                 return
             else:
                 self.debug_msg("Move: {}\nBoard:\n{}\n".format(board_move, str(self.board.get_twoD_board())))
