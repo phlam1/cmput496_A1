@@ -8,27 +8,32 @@ play b b1
 
 10 play w b1
 #? [illegal move: w b1 occupied]
+# white cannot play on b1 because black played there
 
 20 play c3
 #? [illegal move: c3 wrong number of arguments]
+# There is no color assigned to the move 
 
 30 play r c3
 #? [illegal move: r c3 wrong color]
+# r is not a valid color {w,b}
 
 40 play w c99
 #? [illegal move: w c99 wrong coordinate]
+# white cannot play at c99 it is off the board
 
 play w a1
 
 60 play b a2
 #? [illegal move: b a2 capture]
+# black cannot play at a2 as it will capture white at a1
 
 play b b2
 play b a3
 
 70 play w a2
 #? [illegal move: w a2 suicide]
-
+# white cannot play at a2 as it will lose the last liberty and commit suicide
 
 
 
@@ -55,15 +60,17 @@ play w c3
 
 100 play b b3
 #? [illegal move: b b3 capture]
+# cannot play at black at b3 as it will capture white 
 
 play b b1
 
 110 legal_moves b
 #? []
+# no more legal moves remaining for black
 
 120 legal_moves w
 #? []
-
+# no more legal moves remaining for white
 
 
 
@@ -77,6 +84,7 @@ play b a2
 
 130 play w a1
 #? [illegal move: w a1 suicide]
+# white will lose the last liberty if played at a1
 
 play w c1
 play w b2
@@ -84,25 +92,32 @@ play w a3
 
 140 play b a1
 #? [illegal move: b a1 suicide]
+# black will lose the last  liberty if played at a1
 
 150 legal_moves w
 #? [b3 c2 c3]
+# remaining legal moves for white
 
 160 legal_moves b
 #? [c3]
+# remaining legal moves for black
 
 play w c3
 
 170 legal_moves b
 #? []
+# no more remaining legal moves for black
 
 180 legal_moves w
 #? [b3 c2]
+# remaining legal moves for white
 
 play w b3
 
 190 legal_moves w
 #? []
+# no more legal moves for white
 
 200 play b c2
 #? [illegal move: b c2 capture]
+# black cannot play at c2 as it will capture white
